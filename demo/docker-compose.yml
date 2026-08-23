@@ -1,0 +1,19 @@
+services:
+  nats:
+    image: nats:latest
+    ports:
+      - 4222:4222
+      - 8222:8222
+    networks:
+      - nats-network
+
+  natsbox:
+    image: natsio/nats-box:latest
+    tty: true
+    networks:
+      - nats-network
+
+networks:
+  nats-network:
+    name: nats-network
+    driver: bridge
