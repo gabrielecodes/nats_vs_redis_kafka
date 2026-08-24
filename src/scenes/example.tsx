@@ -18,7 +18,7 @@ export default makeScene2D(function* (view) {
 function Card() {
   return (
     <>
-      <Txt text="THEY CHANGED" fontFamily="Cal Sans" fontSize={120} fontWeight={900} letterSpacing={-1} fill="white" />
+      <Txt text="THEY CHANGED" fontFamily="Cal Sans" fontSize={120} fontWeight={900} fill="white" />
       <Rect
         x={-500}
         y={-400}
