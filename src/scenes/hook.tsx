@@ -7,6 +7,7 @@ import mobile from "../svg/mobile-app-svgrepo-com.svg"
 import grinningFace from "../svg/grinning-face-with-sweat-svgrepo-com.svg"
 import kafkaIcon from "../svg/kafka-svgrepo-com.svg"
 import postgresIcon from "../svg/postgresql-logo-svgrepo-com.svg"
+import redisIcon from "../svg/redis-logo-svgrepo-com.svg"
 
 
 export default makeScene2D(function* (view) {
@@ -52,7 +53,7 @@ export default makeScene2D(function* (view) {
       <Circle ref={circles} size={100} y={300} x={400} stroke={blue} lineWidth={4} opacity={0} />
       <Rect ref={inputRectRef} x={0} y={-350} width={500} height={200} stroke={'gray'} lineWidth={4} radius={8} lineDash={[10, 10]} fill={cardBackground} opacity={0} />
       <Img ref={browserRef} src={availability} x={-100} y={-370} opacity={0} scale={0.2} />
-      <Txt ref={browserTxtRef} x={-105} y={-290} text={"Web"} fontFamily={"Cal sans"} fontSize={28} fill={"lightgray"} opacity={0} />
+      <Txt ref={browserTxtRef} x={-100} y={-290} text={"Web"} fontFamily={"Cal sans"} fontSize={28} fill={"lightgray"} opacity={0} />
       <Img ref={mobileRef} src={mobile} x={100} y={-370} opacity={0} scale={0.2} />
       <Txt ref={mobileTxtRef} x={105} y={-290} text={"Mobile"} fontFamily={"Cal sans"} fontSize={28} fill={"lightgray"} opacity={0} />
       <Line ref={line1} points={[[0, -250], [0, -100]]} lineWidth={4} stroke={'gray'} end={0} endArrow />
@@ -122,12 +123,14 @@ export default makeScene2D(function* (view) {
   const textContainer2 = createRef<Node>();
   const redis = createRef<Node>();
 
+  const redisImg = createRef<Img>();
   const postgres = createRef<Txt>();
   const postgresImg = createRef<Img>();
   const kafkaImg = createRef<Img>();
   const kafka = createRef<Txt>();
   view.add(
     <Node ref={textContainer2}>
+      <Img ref={redisImg} src={redisIcon} scale={0.1} x={-300} y={-80} opacity={0} />
       <Txt ref={redis} x={-300} y={0} text={"Redis"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
 
       <Img ref={postgresImg} src={postgresIcon} scale={0.1} x={0} y={-80} opacity={0} />
@@ -139,6 +142,7 @@ export default makeScene2D(function* (view) {
   )
 
   yield* all(
+    redisImg().opacity(1, 0),
     redis().opacity(1, 0),
     delay(0.75, postgresImg().opacity(1, 0)),
     delay(0.75, postgres().opacity(1, 0)),
@@ -152,8 +156,12 @@ export default makeScene2D(function* (view) {
   const emoji = createRef<Node>();
   view.add(
     <Node ref={emoji}>
-      <Img src={grinningFace} scale={0.2} x={0} y={200} />
-      <Txt text={"not like  this pls"} x={0} y={340} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} />
+      <Img src={grinningFace} scale={0.1} x={-300} y={-80} />
+      <Img src={grinningFace} scale={0.1} x={0} y={-80} />
+      <Img src={grinningFace} scale={0.1} x={300} y={-80} />
+      <Txt text={"*not like  this pls"} x={-400} y={-180} fill={"lightgray"} fontSize={30} fontFamily={"Cal sans"} />
+      <Txt text={"❌ reliability"} x={0} y={180} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} />
+      <Txt text={"❌ delivery guarantees"} x={0} y={250} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} />
     </Node>
   )
 

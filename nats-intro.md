@@ -16,7 +16,7 @@
 
 The microservice architecture is the paradigm that has dominated the tech field for over a decade, but it comes with its own set of problems. Orchestrating many loosely coupled services at scale is a challenge.
 
-We need service discovery, security, load balancing and a convenient messaging interface. That's when tools like Kubernetes, Istio, API gateways and consensus mechanisms and many other come in. As your application grows in complexity you may be tempted to use technologies such as Redis or Postgres as makeshift communication bus, using Pub/Sub and NOTIFY to ease the operational burden leaving behind at the cost of functionality and delivery guarantees. Then maybe you turn to Kafka, but that has a whole new set of complexities.
+We need service discovery, security, load balancing and a convenient messaging interface. That's when tools like Kubernetes, Istio, API gateways and consensus mechanisms and many other come in. As your application grows in complexity you may be tempted to use technologies such as Redis Pub/Sub or Postgres notifications to ease the operational burden. By pushing databases outside of their comfort zone, you're accepting severe tradeoffs in reliability and delivery guarantees. Then maybe you turn to Kafka, but that has a whole new set of complexities.
 
 What if I told you that NATS could be the better tradeoff? It's a lightweight, high-performance application that offers service discovery, load balancing, and granular zero-trust security directly into the communication fabric.
 
