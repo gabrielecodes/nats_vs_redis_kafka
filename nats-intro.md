@@ -14,15 +14,11 @@
 
 ### Hook
 
-The microservice architecture is the paradigm that has dominated the tech field for over a decade, but it comes with its own set of problems. These microservices need to communicate with each other securely and at scale. 
+The microservice architecture is the paradigm that has dominated the tech field for over a decade, but it comes with its own set of problems. Orchestrating many loosely coupled services at scale is a challenge.
 
-We need service discovery, security, load balancing and a convenient messaging interface. That's when tools like Kubernetes, Istio, API gateways and consensus mechanisms and many other come in. The infrastructure burden is significant.
+We need service discovery, security, load balancing and a convenient messaging interface. That's when tools like Kubernetes, Istio, API gateways and consensus mechanisms and many other come in. As your application grows in complexity you may be tempted to use technologies such as Redis or Postgres as makeshift communication bus, using Pub/Sub and NOTIFY to ease the operational burden leaving behind at the cost of functionality and delivery guarantees. Then maybe you turn to Kafka, but that has a whole new set of complexities.
 
-What if I told you that NATS could be the one solution you need? It's a lightweight, high-performance application that offers service discovery, load balancing, and granular zero-trust security directly into the communication fabric.
-
-### Transition
-
-Tools like Redis, Postgres and Kafka were built to do one thing well but as your system grows you may find yourself using those tools out of their comfort zone just to deal with the growing complexity. If you find yourself using Redis pub/sub or using Postgres tables and LISTEN/NOTIFY as a makeshift communication bus you may want to consider a real messaging system. Kafka is a big name in the world of event streaming but it has its operational burden.
+What if I told you that NATS could be the better tradeoff? It's a lightweight, high-performance application that offers service discovery, load balancing, and granular zero-trust security directly into the communication fabric.
 
 ### Meet NATS
 
