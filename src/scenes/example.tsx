@@ -1,4 +1,5 @@
-import { makeScene2D, Rect, Txt } from "@motion-canvas/2d";
+import { Img, makeScene2D, Rect, Txt } from "@motion-canvas/2d";
+import databaseSVG from '../svg/database-svgrepo-com.svg'
 import "@fontsource/cal-sans/400.css";
 
 const background = "#212121";
@@ -10,9 +11,11 @@ const neonGlow = "#00e5ff";
 export default makeScene2D(function* (view) {
   view.fill(background);
 
-  view.add(<Card />);
+  // view.add(<Img src={databaseSVG} scale={0.2} x={-400} y={300} />);
+  // view.add(<Img src={databaseSVG} scale={0.2} x={0} y={300} />);
+  // view.add(<Img src={databaseSVG} scale={0.2} x={400} y={300} />);
 
-  yield;
+  // yield;
 });
 
 function Card() {

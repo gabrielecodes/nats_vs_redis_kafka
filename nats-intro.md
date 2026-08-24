@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Hook](#hook)
-- [Redis](#redis) in 30–45 seconds — establish what Redis is good at.
+- [Transition](#transition) in 30–45 seconds — motivation
 - [Meet NATS](#meet-nats) — explain Core NATS.
 - [The key insight](#the-key-insight) — NATS isn't a Redis replacement; it's solving a different problem.
 - Build something — a small real application using KV + messaging.
@@ -14,27 +14,25 @@
 
 ### Hook
 
-The microservice architecture is the paradigm that has dominated the tech field for over a decade, but it comes with its own set of problems. These microservices need to communicate with each other securely and at scale.
+The microservice architecture is the paradigm that has dominated the tech field for over a decade, but it comes with its own set of problems. These microservices need to communicate with each other securely and at scale. 
 
-We need service discovery, security, load balancing and a convenient messaging interface. That's when tools like Kubernetes, Istio, API gateways and consensus mechanisms come in.
+We need service discovery, security, load balancing and a convenient messaging interface. That's when tools like Kubernetes, Istio, API gateways and consensus mechanisms and many other come in. The infrastructure burden is significant.
 
-Enter NATS. It isn't just another messaging protocol. It's an operational shortcut that bakes service discovery, load balancing, and granular zero-trust security directly into the communication fabric.
+What if I told you that NATS could be the one solution you need? It's a lightweight, high-performance application that offers service discovery, load balancing, and granular zero-trust security directly into the communication fabric.
 
-### Redis
+### Transition
 
-If you've worked in the software industry for a while, you've probably come across Redis, a key-value data store used primarily as an ultra-low-latency database, cache, and message broker. It supports complex data structures alongside configurable persistence and replication.
+Tools like Redis, Postgres and Kafka were built to do one thing well but as your system grows you may find yourself using those tools out of their comfort zone just to deal with the growing complexity. If you find yourself using Redis pub/sub or using Postgres tables and LISTEN/NOTIFY as a makeshift communication bus you may want to consider a real messaging system. Kafka is a big name in the world of event streaming but it has its operational burden.
 
 ### Meet NATS
 
-What may be new to you is NATS. NATS is a lightweight, high-performance messaging system engineered for low-latency communication, designed to move data between services quickly and reliably across cloud, multi-cloud, and edge environments.
+NATS is a lightweight, high-performance messaging system engineered for low-latency communication, designed to move data between services quickly and reliably across cloud, multi-cloud, and edge environments.
 
 ### The Key Insight
 
-There isn't really a strong overlap between Redis and NATS. Redis is fundamentally a low-latency data store, with primitives for storing, reading, and manipulating data. NATS, on the other hand, is first and foremost a high-performance communication system that can be extended with persistence when you need it.
+There isn't really a strong overlap between Redis and NATS. Redis is fundamentally a low-latency data store, with primitives for storing, reading, and manipulating data. Postgres is a great transactional database. NATS, on the other hand, is first and foremost a high-performance communication system that can be extended with persistence when you need it.
 
-The interesting part is that some architecture use Redis not so much as database but as a way to deliver messages between microservices. If you fund yourself using Redis as a centralized message bus for microservices, you'll find NATS to be much better suited for this job.
-
-In fact NATS with the Jetstream extension, has a stronger overlap with Kafka. But that's a story for another video.
+In fact NATS with the Jetstream extension, has a stronger overlap with Kafka. But I'll skip an in depth comparison in this video.
 
 NATS core is just the foundation. You can extend it with JetStream which adds persistance and reliable messaging delivery, and Key Value, which provides a key-value store on top of jetstream.
 This means you can have ephemeral, low-latency messaging when you need it, while still having the option to persist messages and maintain state when you need that too. And because all of this is built around the same messaging system, you also get things like request-reply, hierarchical subject routing, and load balancing through queue groups.
