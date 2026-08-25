@@ -68,3 +68,4 @@ Redis is stateful in that it stores and maintains your data in memory, with opti
 for all that state even when all you want to do is move messages between services.
 
 Redis pub/sub uses an at-most-once delivery model which basically means fire and forget when a message is published redis sends it to the subscribers that are currently listening but if a subscriber is disconnected when that message arrives the message is simply gone, there's no built-in mechanism to replay it later.
+ 

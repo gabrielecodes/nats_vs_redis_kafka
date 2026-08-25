@@ -208,16 +208,14 @@ export default makeScene2D(function* (view) {
     reliability().opacity(0, 0),
     delivery().opacity(0, 0),
 
-    delay(.5, envoyImg().opacity(1, 0)),
-    delay(.5, envoy().opacity(1, 0)),
-    delay(1.25, envoyImg().opacity(1, 0)),
-    delay(1.25, envoy().opacity(1, 0)),
-    delay(2, rabbitImg().opacity(1, 0)),
-    delay(2, rabbit().opacity(1, 0)),
-    delay(2.75, elasticlbImg().opacity(1, 0)),
-    delay(2.75, elasticlb().opacity(1, 0)),
-    delay(3.5, kafkaImg().opacity(1, 0)),
-    delay(3.5, kafka().opacity(1, 0)),
+    envoyImg().opacity(1, 0),
+    envoy().opacity(1, 0),
+    delay(.5, rabbitImg().opacity(1, 0)),
+    delay(.5, rabbit().opacity(1, 0)),
+    delay(1, elasticlbImg().opacity(1, 0)),
+    delay(1, elasticlb().opacity(1, 0)),
+    delay(1.5, kafkaImg().opacity(1, 0)),
+    delay(1.5, kafka().opacity(1, 0)),
   )
 
   yield* waitFor(3);
