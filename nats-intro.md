@@ -18,7 +18,7 @@ The microservice architecture is the paradigm that has dominated the tech field 
 
 We need service discovery, security, load balancing and a convenient messaging interface. That's when tools like Kubernetes, Istio, API gateways and consensus mechanisms and many other come in. As your application grows in complexity you may be tempted to use technologies such as Redis Pub/Sub or Postgres notifications to ease the operational burden. By pushing databases outside of their comfort zone, you're accepting severe tradeoffs in reliability and delivery guarantees. Then maybe you turn to Kafka, but that has a whole new set of complexities.
 
-What if I told you that NATS could be the better tradeoff? It's a lightweight, high-performance application that offers service discovery, load balancing, and granular zero-trust security directly into the communication fabric.
+What if I told you that NATS could be the better tradeoff? It's a lightweight, high-performance application that offers service discovery, load balancing, and granular zero-trust security. It's not really a one-to-one replacement for all these technologies, but it may be just what you need to keep your architecture functional and manageable.
 
 ### Meet NATS
 
@@ -26,7 +26,7 @@ NATS is a lightweight, high-performance messaging system engineered for low-late
 
 ### The Key Insight
 
-There isn't really a strong overlap between Redis and NATS. Redis is fundamentally a low-latency data store, with primitives for storing, reading, and manipulating data. Postgres is a great transactional database. NATS, on the other hand, is first and foremost a high-performance communication system that can be extended with persistence when you need it.
+For example, Redis is fundamentally a low-latency data store, with primitives for storing, reading, and manipulating data. Postgres is a great transactional database. NATS, on the other hand, is first and foremost a high-performance communication system that can be extended with persistence when you need it.
 
 In fact NATS with the Jetstream extension, has a stronger overlap with Kafka. But I'll skip an in depth comparison in this video.
 

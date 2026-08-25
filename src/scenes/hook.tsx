@@ -8,6 +8,9 @@ import grinningFace from "../svg/grinning-face-with-sweat-svgrepo-com.svg"
 import kafkaIcon from "../svg/kafka-svgrepo-com.svg"
 import postgresIcon from "../svg/postgresql-logo-svgrepo-com.svg"
 import redisIcon from "../svg/redis-logo-svgrepo-com.svg"
+import envoyIcon from "../svg/Envoy.svg"
+import rabbitIcon from "../svg/RabbitMQ.svg"
+import elasticlbIcon from "../svg/Elastic Load Balancing.svg"
 
 
 export default makeScene2D(function* (view) {
@@ -99,12 +102,16 @@ export default makeScene2D(function* (view) {
   const secureComms = createRef<Txt>();
   const loadBalancing = createRef<Txt>();
   const messaging = createRef<Txt>();
+  const caches = createRef<Txt>();
+  const eventStreaming = createRef<Txt>();
   view.add(
     <Node ref={textContainer1}>
       <Txt ref={discovery} x={0} y={-220} text={"service discovery"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
       <Txt ref={secureComms} x={0} y={-160} text={"secure comms"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
       <Txt ref={loadBalancing} x={0} y={-100} text={"load balancing"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
-      <Txt ref={messaging} x={0} y={-40} text={"messaging interface"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+      <Txt ref={messaging} x={0} y={-40} text={"pub/sub queues"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+      <Txt ref={caches} x={0} y={20} text={"caches"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+      <Txt ref={eventStreaming} x={0} y={80} text={"event streaming"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
     </Node>
   )
 
@@ -112,7 +119,9 @@ export default makeScene2D(function* (view) {
     delay(0.5, discovery().opacity(1, 0)),
     delay(1.25, secureComms().opacity(1, 0)),
     delay(2.25, loadBalancing().opacity(1, 0)),
-    delay(3, messaging().opacity(1, 0))
+    delay(3, messaging().opacity(1, 0)),
+    delay(3.75, caches().opacity(1, 0)),
+    delay(4.5, eventStreaming().opacity(1, 0))
   )
 
   yield* all(
@@ -121,23 +130,45 @@ export default makeScene2D(function* (view) {
   )
 
   const textContainer2 = createRef<Node>();
-  const redis = createRef<Node>();
 
+  const redis = createRef<Node>();
   const redisImg = createRef<Img>();
+
   const postgres = createRef<Txt>();
   const postgresImg = createRef<Img>();
+
   const kafkaImg = createRef<Img>();
   const kafka = createRef<Txt>();
+
+  const envoyImg = createRef<Img>();
+  const envoy = createRef<Txt>();
+
+  const rabbitImg = createRef<Img>();
+  const rabbit = createRef<Txt>();
+
+  const elasticlbImg = createRef<Img>();
+  const elasticlb = createRef<Txt>();
+
   view.add(
-    <Node ref={textContainer2}>
-      <Img ref={redisImg} src={redisIcon} scale={0.1} x={-300} y={-80} opacity={0} />
-      <Txt ref={redis} x={-300} y={0} text={"Redis"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+    <Node ref={textContainer2} y={-120}>
+      <Img ref={redisImg} src={redisIcon} scale={0.1} x={-150} y={-80} opacity={0} />
+      <Txt ref={redis} x={-150} y={0} text={"Redis"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
 
-      <Img ref={postgresImg} src={postgresIcon} scale={0.1} x={0} y={-80} opacity={0} />
-      <Txt ref={postgres} x={0} y={0} text={"PostgreSQL"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+      <Img ref={postgresImg} src={postgresIcon} scale={0.1} x={150} y={-80} opacity={0} />
+      <Txt ref={postgres} x={150} y={0} text={"PostgreSQL"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
 
-      <Img ref={kafkaImg} src={kafkaIcon} scale={0.2} x={300} y={-80} opacity={0} />
-      <Txt ref={kafka} x={300} y={0} text={"Kafka"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+      <Img ref={envoyImg} src={envoyIcon} scale={.6} x={-350} y={100} opacity={0} />
+      <Txt ref={envoy} x={-350} y={170} text={"Envoy"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+
+      <Img ref={rabbitImg} src={rabbitIcon} scale={.4} x={-130} y={100} opacity={0} />
+      <Txt ref={rabbit} x={-130} y={170} text={"RabbitMQ"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+
+      <Img ref={elasticlbImg} src={elasticlbIcon} scale={.75} x={130} y={100} opacity={0} />
+      <Txt ref={elasticlb} x={130} y={170} text={"ElasticLB"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+
+      <Img ref={kafkaImg} src={kafkaIcon} scale={0.2} x={350} y={100} opacity={0} />
+      <Txt ref={kafka} x={350} y={170} text={"Kafka"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+
     </Node>
   )
 
@@ -145,28 +176,40 @@ export default makeScene2D(function* (view) {
     redisImg().opacity(1, 0),
     redis().opacity(1, 0),
     delay(0.75, postgresImg().opacity(1, 0)),
-    delay(0.75, postgres().opacity(1, 0)),
-    delay(1.5, kafkaImg().opacity(1, 0)),
-    delay(1.5, kafka().opacity(1, 0)),
+    delay(0.75, postgres().opacity(1, 0))
   )
 
-  yield* waitFor(5);
+  yield* waitFor(2)
 
-
+  const face1 = createRef<Img>();
+  const face2 = createRef<Img>();
   const emoji = createRef<Node>();
   view.add(
     <Node ref={emoji}>
-      <Img src={grinningFace} scale={0.1} x={-300} y={-80} />
-      <Img src={grinningFace} scale={0.1} x={0} y={-80} />
-      <Img src={grinningFace} scale={0.1} x={300} y={-80} />
-      <Txt text={"*not like  this pls"} x={-400} y={-180} fill={"lightgray"} fontSize={30} fontFamily={"Cal sans"} />
-      <Txt text={"❌ reliability"} x={0} y={180} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} />
-      <Txt text={"❌ delivery guarantees"} x={0} y={250} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} />
+      <Img ref={face1} src={grinningFace} scale={0.1} x={-150} y={-200} />
+      <Img ref={face2} src={grinningFace} scale={0.1} x={150} y={-200} />
+      <Txt text={"*not like  this pls"} x={350} y={-200} fill={"lightgray"} fontSize={30} fontFamily={"Cal sans"} />
+      <Txt text={"❌ reliability"} x={0} y={0} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} />
+      <Txt text={"❌ delivery guarantees"} x={0} y={70} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} />
     </Node>
   )
 
   yield* emoji().opacity(1, 0);
-  yield* waitFor(1);
+  yield* waitFor(3);
+
+  yield* all(
+    emoji().opacity(0, 0),
+    delay(1.5, kafkaImg().opacity(1, 0)),
+    delay(1.5, kafka().opacity(1, 0)),
+    delay(2.25, envoyImg().opacity(1, 0)),
+    delay(2.25, envoy().opacity(1, 0)),
+    delay(3, rabbitImg().opacity(1, 0)),
+    delay(3, rabbit().opacity(1, 0)),
+    delay(3.75, elasticlbImg().opacity(1, 0)),
+    delay(3.75, elasticlb().opacity(1, 0)),
+  )
+
+  yield* waitFor(5);
 
 });
 
