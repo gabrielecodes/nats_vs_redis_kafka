@@ -70,6 +70,8 @@ export default makeScene2D(function* (view) {
     </Node>
   )
 
+  yield* waitFor(1)
+
   yield* all(
     delay(0.2, path1().end(1, 1)),
     delay(0.25, path2().end(1, 1)),
@@ -179,7 +181,7 @@ export default makeScene2D(function* (view) {
     delay(0.75, postgres().opacity(1, 0))
   )
 
-  yield* waitFor(2)
+  yield* waitFor(4)
 
   const face1 = createRef<Img>();
   const face2 = createRef<Img>();
@@ -199,14 +201,14 @@ export default makeScene2D(function* (view) {
 
   yield* all(
     emoji().opacity(0, 0),
-    delay(1.5, kafkaImg().opacity(1, 0)),
-    delay(1.5, kafka().opacity(1, 0)),
-    delay(2.25, envoyImg().opacity(1, 0)),
-    delay(2.25, envoy().opacity(1, 0)),
-    delay(3, rabbitImg().opacity(1, 0)),
-    delay(3, rabbit().opacity(1, 0)),
-    delay(3.75, elasticlbImg().opacity(1, 0)),
-    delay(3.75, elasticlb().opacity(1, 0)),
+    delay(.5, kafkaImg().opacity(1, 0)),
+    delay(.5, kafka().opacity(1, 0)),
+    delay(1.25, envoyImg().opacity(1, 0)),
+    delay(1.25, envoy().opacity(1, 0)),
+    delay(2, rabbitImg().opacity(1, 0)),
+    delay(2, rabbit().opacity(1, 0)),
+    delay(2.75, elasticlbImg().opacity(1, 0)),
+    delay(2.75, elasticlb().opacity(1, 0)),
   )
 
   yield* waitFor(5);
