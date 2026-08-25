@@ -18,11 +18,10 @@ The microservice architecture is the paradigm that has dominated the tech field 
 
 We need service discovery, security, load balancing and a convenient messaging interface. That's when tools like Kubernetes, Istio, API gateways and consensus mechanisms and many other come in. As your application grows in complexity you may be tempted to use technologies such as Redis Pub/Sub or Postgres notifications to ease the operational burden. By pushing databases outside of their comfort zone, you're accepting severe tradeoffs in reliability and delivery guarantees. Then maybe you turn to Kafka, but that has a whole new set of complexities.
 
-What if I told you that NATS could be the better tradeoff? It's a lightweight, high-performance application that offers service discovery, load balancing, and granular zero-trust security. It's not really a one-to-one replacement for all these technologies, but it may be just what you need to keep your architecture functional and manageable.
-
 ### Meet NATS
 
-NATS is a lightweight, high-performance messaging system engineered for low-latency communication, designed to move data between services quickly and reliably across cloud, multi-cloud, and edge environments.
+NATS could be the better tradeoff. It simplifies your architecture while giving you plenty of functionality. NATS It's a lightweight, high-performance application that offers service discovery, load balancing, and granular zero-trust security. 
+It's engineered for low-latency communication, and designed to move data between services quickly and reliably across cloud, and edge environments.
 
 ### The Key Insight
 

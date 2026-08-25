@@ -1,5 +1,6 @@
 import { Node, Circle, CubicBezier, Img, Line, makeScene2D, Path, Rect, Txt } from "@motion-canvas/2d";
 import "@fontsource/cal-sans/400.css";
+import "@fontsource/inter/400.css";
 import { background, blue, cardBackground } from "./colors";
 import { all, createRef, createRefArray, delay, waitFor } from "@motion-canvas/core";
 import availability from "../svg/availability-svgrepo-com.svg"
@@ -11,6 +12,7 @@ import redisIcon from "../svg/redis-logo-svgrepo-com.svg"
 import envoyIcon from "../svg/Envoy.svg"
 import rabbitIcon from "../svg/RabbitMQ.svg"
 import elasticlbIcon from "../svg/Elastic Load Balancing.svg"
+import natsIcon from "../svg/nats.svg"
 
 
 export default makeScene2D(function* (view) {
@@ -43,12 +45,12 @@ export default makeScene2D(function* (view) {
       <Rect ref={rectRef} size={1000} height={300} y={350} stroke={'gray'} fill={cardBackground} lineWidth={4} radius={12} lineDash={[10, 10]} opacity={0} />
 
       <Rect ref={domain1} size={550} height={200} x={-200} y={320} stroke={'gray'} lineWidth={4} radius={12} lineDash={[10, 10]} opacity={0} />
-      <Txt ref={domain1Txt} text={"Domain A"} fontFamily={"Cal sans"} x={-360} y={380} fontSize={40} fill={"lightgray"} opacity={0} />
+      <Txt ref={domain1Txt} text={"Domain A"} fontFamily={"Inter"} x={-360} y={380} fontSize={40} fill={"lightgray"} opacity={0} />
 
       <Rect ref={domain2} size={400} height={200} x={290} y={320} stroke={'gray'} lineWidth={4} radius={12} lineDash={[10, 10]} opacity={0} />
-      <Txt ref={domain2Txt} text={"Domain B"} fontFamily={"Cal sans"} x={360} y={380} fontSize={40} fill={"lightgray"} opacity={0} />
+      <Txt ref={domain2Txt} text={"Domain B"} fontFamily={"Inter"} x={360} y={380} fontSize={40} fill={"lightgray"} opacity={0} />
 
-      <Txt ref={microservices} text={"Microservices"} fontFamily={"Cal sans"} y={460} fontSize={40} fill={"lightgray"} opacity={0} />
+      <Txt ref={microservices} text={"Microservices"} fontFamily={"Inter"} y={460} fontSize={40} fill={"lightgray"} opacity={0} />
       <Circle ref={circles} size={100} y={300} x={-400} stroke={blue} lineWidth={4} opacity={0} />
       <Circle ref={circles} size={100} y={300} x={-200} stroke={blue} lineWidth={4} opacity={0} />
       <Circle ref={circles} size={100} y={300} x={0} stroke={blue} lineWidth={4} opacity={0} />
@@ -56,12 +58,12 @@ export default makeScene2D(function* (view) {
       <Circle ref={circles} size={100} y={300} x={400} stroke={blue} lineWidth={4} opacity={0} />
       <Rect ref={inputRectRef} x={0} y={-350} width={500} height={200} stroke={'gray'} lineWidth={4} radius={8} lineDash={[10, 10]} fill={cardBackground} opacity={0} />
       <Img ref={browserRef} src={availability} x={-100} y={-370} opacity={0} scale={0.2} />
-      <Txt ref={browserTxtRef} x={-100} y={-290} text={"Web"} fontFamily={"Cal sans"} fontSize={28} fill={"lightgray"} opacity={0} />
+      <Txt ref={browserTxtRef} x={-100} y={-290} text={"Web"} fontFamily={"Inter"} fontSize={28} fill={"lightgray"} opacity={0} />
       <Img ref={mobileRef} src={mobile} x={100} y={-370} opacity={0} scale={0.2} />
-      <Txt ref={mobileTxtRef} x={105} y={-290} text={"Mobile"} fontFamily={"Cal sans"} fontSize={28} fill={"lightgray"} opacity={0} />
+      <Txt ref={mobileTxtRef} x={105} y={-290} text={"Mobile"} fontFamily={"Inter"} fontSize={28} fill={"lightgray"} opacity={0} />
       <Line ref={line1} points={[[0, -250], [0, -100]]} lineWidth={4} stroke={'gray'} end={0} endArrow />
       <Rect ref={apiGwRef} size={400} height={100} y={-50} stroke={'gray'} fill={cardBackground} lineWidth={4} radius={12} lineDash={[10, 10]} opacity={0} />
-      <Txt ref={apiGwTextRef} text={"API Gateway"} y={-50} fontFamily={"Cal sans"} fontSize={40} fill={"lightgray"} opacity={0} />
+      <Txt ref={apiGwTextRef} text={"API Gateway"} y={-50} fontFamily={"Inter"} fontSize={40} fill={"lightgray"} opacity={0} />
       <CubicBezier ref={path1} p0={[0, 0]} p1={[0, 200]} p2={[-400, -10]} p3={[-400, 250]} stroke="gray" lineWidth={4} endArrow end={0} />,
       <CubicBezier ref={path2} p0={[0, 0]} p1={[0, 200]} p2={[-140, 50]} p3={[-200, 250]} stroke="gray" lineWidth={4} endArrow end={0} />,
       <CubicBezier ref={path3} p0={[0, 0]} p1={[0, 200]} p2={[0, -10]} p3={[0, 250]} stroke="gray" lineWidth={4} endArrow end={0} />,
@@ -107,14 +109,14 @@ export default makeScene2D(function* (view) {
   const caches = createRef<Txt>();
   const eventStreaming = createRef<Txt>();
   view.add(
-    <Node ref={textContainer1}>
-      <Txt ref={discovery} x={0} y={-220} text={"service discovery"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
-      <Txt ref={secureComms} x={0} y={-160} text={"secure comms"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
-      <Txt ref={loadBalancing} x={0} y={-100} text={"load balancing"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
-      <Txt ref={messaging} x={0} y={-40} text={"pub/sub queues"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
-      <Txt ref={caches} x={0} y={20} text={"caches"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
-      <Txt ref={eventStreaming} x={0} y={80} text={"event streaming"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
-    </Node>
+    <Rect ref={textContainer1} layout direction={"column"} alignItems={"start"}>
+      <Txt ref={discovery} x={0} y={-220} text={"service discovery"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
+      <Txt ref={secureComms} x={0} y={-160} text={"secure comms"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
+      <Txt ref={loadBalancing} x={0} y={-100} text={"load balancing"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
+      <Txt ref={messaging} x={0} y={-40} text={"pub/sub queues"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
+      <Txt ref={caches} x={0} y={20} text={"caches"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
+      <Txt ref={eventStreaming} x={0} y={80} text={"event streaming"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
+    </Rect>
   )
 
   yield* all(
@@ -153,23 +155,24 @@ export default makeScene2D(function* (view) {
 
   view.add(
     <Node ref={textContainer2} y={-120}>
+
       <Img ref={redisImg} src={redisIcon} scale={0.1} x={-150} y={-80} opacity={0} />
-      <Txt ref={redis} x={-150} y={0} text={"Redis"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+      <Txt ref={redis} x={-150} y={0} text={"Redis"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
 
       <Img ref={postgresImg} src={postgresIcon} scale={0.1} x={150} y={-80} opacity={0} />
-      <Txt ref={postgres} x={150} y={0} text={"PostgreSQL"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+      <Txt ref={postgres} x={150} y={0} text={"PostgreSQL"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
 
-      <Img ref={envoyImg} src={envoyIcon} scale={.6} x={-350} y={100} opacity={0} />
-      <Txt ref={envoy} x={-350} y={170} text={"Envoy"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+      <Img ref={envoyImg} src={envoyIcon} scale={.6} x={-380} y={100} opacity={0} />
+      <Txt ref={envoy} x={-380} y={170} text={"Envoy"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
 
       <Img ref={rabbitImg} src={rabbitIcon} scale={.4} x={-130} y={100} opacity={0} />
-      <Txt ref={rabbit} x={-130} y={170} text={"RabbitMQ"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+      <Txt ref={rabbit} x={-130} y={170} text={"RabbitMQ"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
 
       <Img ref={elasticlbImg} src={elasticlbIcon} scale={.75} x={130} y={100} opacity={0} />
-      <Txt ref={elasticlb} x={130} y={170} text={"ElasticLB"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+      <Txt ref={elasticlb} x={130} y={170} text={"ElasticLB"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
 
       <Img ref={kafkaImg} src={kafkaIcon} scale={0.2} x={350} y={100} opacity={0} />
-      <Txt ref={kafka} x={350} y={170} text={"Kafka"} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} opacity={0} />
+      <Txt ref={kafka} x={350} y={170} text={"Kafka"} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} opacity={0} />
 
     </Node>
   )
@@ -186,13 +189,15 @@ export default makeScene2D(function* (view) {
   const face1 = createRef<Img>();
   const face2 = createRef<Img>();
   const emoji = createRef<Node>();
+  const reliability = createRef<Txt>();
+  const delivery = createRef<Txt>();
   view.add(
     <Node ref={emoji}>
       <Img ref={face1} src={grinningFace} scale={0.1} x={-150} y={-200} />
       <Img ref={face2} src={grinningFace} scale={0.1} x={150} y={-200} />
-      <Txt text={"*not like  this pls"} x={350} y={-200} fill={"lightgray"} fontSize={30} fontFamily={"Cal sans"} />
-      <Txt text={"❌ reliability"} x={0} y={0} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} />
-      <Txt text={"❌ delivery guarantees"} x={0} y={70} fill={"lightgray"} fontSize={50} fontFamily={"Cal sans"} />
+      <Txt text={"*not like  this pls"} x={350} y={-200} fill={"lightgray"} fontSize={30} fontFamily={"Inter"} />
+      <Txt ref={reliability} text={"❌ reliability"} x={0} y={0} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} />
+      <Txt ref={delivery} text={"❌ delivery guarantees"} x={0} y={70} fill={"lightgray"} fontSize={50} fontFamily={"Inter"} />
     </Node>
   )
 
@@ -200,18 +205,94 @@ export default makeScene2D(function* (view) {
   yield* waitFor(3);
 
   yield* all(
-    emoji().opacity(0, 0),
-    delay(.5, kafkaImg().opacity(1, 0)),
-    delay(.5, kafka().opacity(1, 0)),
+    reliability().opacity(0, 0),
+    delivery().opacity(0, 0),
+
+    delay(.5, envoyImg().opacity(1, 0)),
+    delay(.5, envoy().opacity(1, 0)),
     delay(1.25, envoyImg().opacity(1, 0)),
     delay(1.25, envoy().opacity(1, 0)),
     delay(2, rabbitImg().opacity(1, 0)),
     delay(2, rabbit().opacity(1, 0)),
     delay(2.75, elasticlbImg().opacity(1, 0)),
     delay(2.75, elasticlb().opacity(1, 0)),
+    delay(3.5, kafkaImg().opacity(1, 0)),
+    delay(3.5, kafka().opacity(1, 0)),
   )
 
-  yield* waitFor(5);
+  yield* waitFor(3);
+
+  const natsImg = createRef<Img>()
+  view.add(
+    <Img ref={natsImg} src={natsIcon} scale={4} x={1400} y={0} />
+  )
+  yield* all(emoji().x(-2000, 1), textContainer2().x(-2000, 1), delay(0.3, natsImg().x(0, 1)));
+  yield* waitFor(3);
+  yield* natsImg().y(-380, 1)
+
+  const natsTable = createRef<Txt>()
+  const core = createRef<Txt>()
+  const jetstream = createRef<Txt>()
+  const kv = createRef<Txt>()
+  const tableLine1 = createRef<Line>()
+  const tableLine2 = createRef<Line>()
+  const tableLine3 = createRef<Line>()
+  const tableLine4 = createRef<Line>()
+  const tableRow1 = createRef<Rect>()
+  const tableRow2 = createRef<Rect>()
+  const tableRow3 = createRef<Rect>()
+  const tableRow4 = createRef<Rect>()
+
+  view.add(
+    <>
+      <Rect ref={natsTable} layout direction={'row'} gap={100} justifyContent={"space-between"} width={1200} x={0} y={-180} opacity={0}>
+        <Txt ref={core} marginLeft={30} text={"Feature"} fill={"lightgray"} fontFamily={"Inter"} />
+        <Txt ref={core} marginLeft={30} text={"Core"} fill={"lightgray"} fontFamily={"Inter"} />
+        <Txt ref={jetstream} marginLeft={40} text={"JetStream"} fill={"lightgray"} fontFamily={"Inter"} />
+        <Txt ref={kv} marginRight={100} text={"Key-Value"} fill={"lightgray"} fontFamily={"Inter"} />
+      </Rect>
+      <Rect layout direction={"column"} gap={60} width={1200} x={0} y={100}>
+        <Rect ref={tableRow1} layout direction={"row"} gap={100} justifyContent={"start"} opacity={0} >
+          <Txt fontSize={40} text={"Messaging"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={40} marginLeft={60} text={"✅"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={40} marginLeft={140} text={"✅"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={40} marginLeft={150} text={"✅"} fill={"lightgray"} fontFamily={"Inter"} />
+        </Rect>
+        <Rect ref={tableRow2} layout direction={"row"} gap={100} justifyContent={"start"} opacity={0} >
+          <Txt fontSize={40} text={"Persistence"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={40} marginLeft={50} text={"❌"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={40} marginLeft={135} text={"✅"} fill={"lightgray"} fontFamily={"Inter"} />
+        </Rect>
+        <Rect ref={tableRow3} layout direction={"row"} gap={100} justifyContent={"start"} opacity={0} >
+          <Txt fontSize={40} text={"Delivery"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={30} marginTop={10} marginLeft={45} text={"at-most-once"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={30} marginTop={10} marginLeft={0} text={"at-least-once"} fill={"lightgray"} fontFamily={"Inter"} />
+        </Rect>
+        <Rect ref={tableRow4} layout direction={"row"} gap={100} justifyContent={"start"} opacity={0} >
+          <Txt fontSize={40} text={"Load Bal."} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={30} marginTop={10} marginLeft={25} text={"queue groups"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={30} marginTop={10} marginRight={10} text={"queue groups"} fill={"lightgray"} fontFamily={"Inter"} />
+        </Rect>
+      </Rect>
+      <Line ref={tableLine1} points={[[-360, -200], [-360, 400]]} lineWidth={4} stroke={'gray'} end={0} />
+      <Line ref={tableLine2} points={[[-60, -200], [-60, 400]]} lineWidth={4} stroke={'gray'} end={0} />
+      <Line ref={tableLine3} points={[[240, -200], [240, 400]]} lineWidth={4} stroke={'gray'} end={0} />
+      <Line ref={tableLine4} points={[[-600, -120], [600, -120]]} lineWidth={4} stroke={'gray'} end={0} />
+    </>
+  )
+
+  yield* all(
+    natsTable().opacity(1, 0.4),
+    delay(0.1, tableLine1().end(1, 1)),
+    delay(0.1, tableLine2().end(1, 1)),
+    delay(0.1, tableLine3().end(1, 1)),
+    delay(0.1, tableLine4().end(1, 1)),
+    delay(2.5, tableRow1().opacity(1, 0.2)),
+    delay(3.5, tableRow2().opacity(1, 0.2)),
+    delay(4.5, tableRow3().opacity(1, 0.2)),
+    delay(5.5, tableRow4().opacity(1, 0.2)),
+  )
+
 
 });
 
