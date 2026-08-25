@@ -246,8 +246,8 @@ export default makeScene2D(function* (view) {
   view.add(
     <>
       <Rect ref={natsTable} layout direction={'row'} gap={100} justifyContent={"space-between"} width={1200} x={0} y={-180} opacity={0}>
-        <Txt ref={core} marginLeft={30} text={"Feature"} fill={"lightgray"} fontFamily={"Inter"} />
-        <Txt ref={core} marginLeft={30} text={"Core"} fill={"lightgray"} fontFamily={"Inter"} />
+        <Txt ref={core} marginLeft={0} text={"Feature"} fill={"lightgray"} fontFamily={"Inter"} />
+        <Txt ref={core} marginLeft={60} text={"Core"} fill={"lightgray"} fontFamily={"Inter"} />
         <Txt ref={jetstream} marginLeft={40} text={"JetStream"} fill={"lightgray"} fontFamily={"Inter"} />
         <Txt ref={kv} marginRight={100} text={"Key-Value"} fill={"lightgray"} fontFamily={"Inter"} />
       </Rect>
@@ -262,22 +262,25 @@ export default makeScene2D(function* (view) {
           <Txt fontSize={40} text={"Persistence"} fill={"lightgray"} fontFamily={"Inter"} />
           <Txt fontSize={40} marginLeft={50} text={"❌"} fill={"lightgray"} fontFamily={"Inter"} />
           <Txt fontSize={40} marginLeft={135} text={"✅"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={40} marginLeft={150} text={"✅"} fill={"lightgray"} fontFamily={"Inter"} />
         </Rect>
         <Rect ref={tableRow3} layout direction={"row"} gap={100} justifyContent={"start"} opacity={0} >
           <Txt fontSize={40} text={"Delivery"} fill={"lightgray"} fontFamily={"Inter"} />
           <Txt fontSize={30} marginTop={10} marginLeft={45} text={"at-most-once"} fill={"lightgray"} fontFamily={"Inter"} />
           <Txt fontSize={30} marginTop={10} marginLeft={0} text={"at-least-once"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={30} marginTop={10} marginLeft={0} text={"at-least-once\n(via jetstream)"} fill={"lightgray"} fontFamily={"Inter"} />
         </Rect>
         <Rect ref={tableRow4} layout direction={"row"} gap={100} justifyContent={"start"} opacity={0} >
           <Txt fontSize={40} text={"Load Bal."} fill={"lightgray"} fontFamily={"Inter"} />
           <Txt fontSize={30} marginTop={10} marginLeft={25} text={"queue groups"} fill={"lightgray"} fontFamily={"Inter"} />
-          <Txt fontSize={30} marginTop={10} marginRight={10} text={"queue groups"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={30} marginTop={10} marginLeft={-30} text={"consumer groups"} fill={"lightgray"} fontFamily={"Inter"} />
+          <Txt fontSize={30} marginTop={10} marginLeft={70} text={"-"} fill={"lightgray"} fontFamily={"Inter"} />
         </Rect>
       </Rect>
-      <Line ref={tableLine1} points={[[-360, -200], [-360, 400]]} lineWidth={4} stroke={'gray'} end={0} />
+      <Line ref={tableLine1} points={[[-350, -200], [-350, 400]]} lineWidth={4} stroke={'gray'} end={0} />
       <Line ref={tableLine2} points={[[-60, -200], [-60, 400]]} lineWidth={4} stroke={'gray'} end={0} />
       <Line ref={tableLine3} points={[[240, -200], [240, 400]]} lineWidth={4} stroke={'gray'} end={0} />
-      <Line ref={tableLine4} points={[[-600, -120], [600, -120]]} lineWidth={4} stroke={'gray'} end={0} />
+      <Line ref={tableLine4} points={[[-605, -120], [540, -120]]} lineWidth={4} stroke={'gray'} end={0} />
     </>
   )
 
